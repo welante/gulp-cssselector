@@ -1,14 +1,13 @@
 'use strict';
 
 var Transform = require('readable-stream/transform');
-var rs = require('replacestream');
 var istextorbinary = require('istextorbinary');
 
 module.exports = function(search, replacement, options) {
   return new Transform({
     objectMode: true,
     transform: function(file, enc, callback) {
-      if (file.isNull()) {
+      if ( file.isNull() ) {
         return callback(null, file);
       }
 
@@ -31,7 +30,7 @@ module.exports = function(search, replacement, options) {
         var parts = line.split(',');
         if ( parts.length === 1 ) {
           // no comma all fine
-          return parts.join(',');
+          return line;
         }
 
         var lines = [];
