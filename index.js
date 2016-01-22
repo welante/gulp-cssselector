@@ -62,7 +62,7 @@ module.exports = function(search, replacement, options) {
         if ( file.path.indexOf('.css', file.path.length - 4) === -1 ) {
         // no .css file => ignore
           return callback(null, file);
-        };
+        }
 
         // is stream?
         if ( file.isStream() ) {
